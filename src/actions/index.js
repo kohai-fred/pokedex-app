@@ -26,9 +26,9 @@ export function updatePokedexList(list) {
     };
 }
 
-export function showModal(isOpen) {
+export function showModal(isOpen, pokemon) {
     return {
         type: SHOW_MODAL,
-        payload: { isOpen },
+        payload: { isOpen, pokemon },
     };
 }

@@ -7,12 +7,6 @@ const ButtonAddRemove = ({ pokemon }) => {
     const { nameList } = useSelector((state) => state.pokedex);
     const dispatch = useDispatch();
 
-    const showAlertRemove = (pokemon) => {
-        // alert(`Êtes vous sur de vouloir supprimer ${pokemon.name}`);
-        dispatch(showModal(true));
-        // dispatch(removePokemon(pokemon))
-    };
-
     return (
         <>
             {!nameList.includes(pokemon.name) ? (
@@ -20,7 +14,7 @@ const ButtonAddRemove = ({ pokemon }) => {
                     Add
                 </button>
             ) : (
-                <button className={`${styles.btn} ${styles.remove}`} onClick={() => showAlertRemove(pokemon)}>
+                <button className={`${styles.btn} ${styles.remove}`} onClick={() => dispatch(showModal(true, pokemon))}>
                     Remove
                 </button>
             )}
