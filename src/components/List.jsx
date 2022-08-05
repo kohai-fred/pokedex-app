@@ -2,6 +2,7 @@ import React from "react";
 import Searchbar from "./Searchbar";
 import styles from "./List.module.css";
 import Card from "./Card";
+
 const List = ({ baseList, filteredList, from }) => {
     return (
         <main className={styles.list}>
@@ -13,10 +14,13 @@ const List = ({ baseList, filteredList, from }) => {
                 <h1>{from}</h1>
 
                 <ul className={styles.list_container}>
-                    {filteredList &&
+                    {filteredList.length === 0 ? (
+                        <div>Aucun Pokemon trouvé...</div>
+                    ) : (
                         filteredList.map((pokemon) => {
                             return <Card key={pokemon.id} pokemon={pokemon} />;
-                        })}
+                        })
+                    )}
                 </ul>
             </article>
         </main>

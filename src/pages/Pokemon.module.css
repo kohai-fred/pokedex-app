@@ -171,12 +171,7 @@
     width: 100%;
     height: -webkit-fill-available;
 }
-/* .pokemon .evol > div p {
-    color: white;
-    font-size: clamp(2em, 13vw, 5em);
-    font-weight: 900;
-    text-shadow: 2px 2px 3px black;
-} */
+
 .pokemon .evol img {
     width: clamp(125px, 35vw, 150px);
     aspect-ratio: 1/1;
@@ -236,4 +231,9 @@
 }
 .pokemon footer button {
     box-shadow: 2px 3px 6px black;
+}
+
+.pokemon [alt*="spinner"] {
+    position: absolute;
+    top: 50%;
 }

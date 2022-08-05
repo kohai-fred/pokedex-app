@@ -7,6 +7,7 @@ import styles from "./Pokemon.module.css";
 import ButtonAddRemove from "../components/ButtonAddRemove";
 import cleanedPokemonData from "../services/cleanedPokemonData";
 import { useRef } from "react";
+import Spinner from "../components/Spinner";
 
 const Pokemon = () => {
     const { id } = useParams();
@@ -36,7 +37,7 @@ const Pokemon = () => {
     return (
         <main className={styles.pokemon}>
             {!pokemon ? (
-                <article>404 à faire</article>
+                <Spinner />
             ) : (
                 <article ref={content}>
                     <div>
