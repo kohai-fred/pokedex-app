@@ -27,7 +27,7 @@ const Searchbar = ({ baseList, from }) => {
     return (
         <article className={styles.searchbar_container}>
             <form action="">
-                <input type="text" name="search" id="search" placeholder="Search monster..." onKeyUp={search} />
+                <input type="text" name="search" id="search" placeholder="Search a monster..." onKeyUp={search} />
             </form>
         </article>
     );
