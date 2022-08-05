@@ -123,6 +123,7 @@
     background-color: #fff;
     height: 1.2em;
     font-size: 0.8em;
+    overflow: hidden;
 }
 .pokemon .stat span > div {
     position: absolute;
@@ -139,7 +140,6 @@
 .pokemon .img_container {
     display: grid;
     place-content: center;
-    /* aspect-ratio: 1; */
 }
 .pokemon .img_container img {
     position: relative;
