@@ -15,7 +15,12 @@ const List = ({ baseList, filteredList, from }) => {
 
                 <ul className={styles.list_container}>
                     {filteredList.length === 0 ? (
-                        <div>Aucun Pokemon trouvé...</div>
+                        <li className={styles.no_result}>
+                            <span>.</span>
+                            <span>.</span>
+                            <span>.</span>
+                            <span>?</span>
+                        </li>
                     ) : (
                         filteredList.map((pokemon) => {
                             return <Card key={pokemon.id} pokemon={pokemon} />;
