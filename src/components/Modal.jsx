@@ -27,7 +27,7 @@ const Modal = () => {
             {!isOpen ? (
                 <></>
             ) : (
-                <article className={styles.modal}>
+                <article className={styles.modal} onClick={() => dispatch(showModal(false))}>
                     <section>
                         <p>
                             Êtes vous sûr de vouloir supprimer <span>{pokemon.name} ?</span>
