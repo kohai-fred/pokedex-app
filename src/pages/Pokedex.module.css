@@ -1,0 +1,10 @@
+.pokedex {
+    display: grid;
+    place-content: center;
+}
+
+.pokedex h1 {
+    font-family: "Montserrat Alternates", sans-serif;
+    color: #ddd;
+    font-size: clamp(3em, 8vw, 6em);
+}

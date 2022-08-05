@@ -1,0 +1,23 @@
+.searchbar_container {
+    margin: 5px;
+    padding: 5px;
+}
+
+.searchbar_container form {
+    border-bottom: 2px solid #ddd;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.searchbar_container input {
+    width: -webkit-fill-available;
+    padding: 0.3em 0.5em;
+    font-size: clamp(1em, 5vw, 2em);
+    color: #ddd;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.searchbar_container input::placeholder {
+    color: #ddd;
+}

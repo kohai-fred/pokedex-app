@@ -1,8 +1,10 @@
 import { legacy_createStore, combineReducers } from "redux";
+import pokedexReducer from "../reducers/pokedex";
 import pokemonsListReducer from "../reducers/pokemonList";
 
 const rootReducer = combineReducers({
     pokemonsList: pokemonsListReducer,
+    pokedex: pokedexReducer,
 });
 
 const store = legacy_createStore(

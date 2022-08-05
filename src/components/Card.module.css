@@ -3,15 +3,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 20vh;
-    background-color: black;
+    width: clamp(160px, 20vw, 220px);
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 5px;
-    box-shadow: 5px 5px 5px 0px rgba(209, 209, 209, 1);
+    /* box-shadow: 5px 5px 5px 0px rgba(209, 209, 209, 1); */
     transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
-    transform: scale(1.04);
+    /* transform: scale(1.04); */
     box-shadow: 8px 8px 8px 0px rgb(75, 75, 75);
 }
 
@@ -19,15 +20,26 @@
     font-size: 1.5em;
     text-transform: capitalize;
     color: red;
+    font-family: "Baumans", cursive;
 }
 
-.card_container {
-    width: 50%;
-    object-fit: cover;
-    object-position: center;
+.card_img_link {
+    width: 100%;
+}
+.card_img_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.card_img_container:hover .card_img {
+    transform: scale(1.2);
+    filter: drop-shadow(2px 2px 1px rgba(209, 209, 209, 1));
+    transition: transform 0.5s ease-in-out, drop-shadow 0.3s;
 }
 .card_img {
-    width: 100%;
+    width: 50%;
+    aspect-ratio: 1/1;
+    transition: transform 0.5s ease-in-out, drop-shadow 0.3s;
 }
 
 .card_btn {

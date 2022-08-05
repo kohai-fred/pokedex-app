@@ -1,15 +1,22 @@
-import { POKEMONS_LIST } from "../actions/types";
+import { SEARCH_IN_POKEMON_LIST } from "../actions/types";
 import getPokemonsList from "../services/fetchPokemonsList";
 
 const DATA = await getPokemonsList();
 const initialState = {
-    previous: DATA.previous,
-    next: DATA.next,
-    list: DATA.results,
+    baseList: DATA.results,
+    filteredList: DATA.results,
 };
 
 export default function pokemonsListReducer(state = initialState, action = {}) {
-    // console.log("STATE", state);
-    // console.log("ACTION", action);
-    return state;
+    switch (action.type) {
+        case SEARCH_IN_POKEMON_LIST:
+            const newList = action.payload.list;
+            return {
+                ...state,
+                filteredList: newList,
+            };
+
+        default:
+            return state;
+    }
 }

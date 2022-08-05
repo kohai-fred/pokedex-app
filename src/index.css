@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&display=swap");
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    /* color-scheme: light dark; */
+    /* color: rgba(255, 255, 255, 0.87); */
+    /* background-color: #242424; */
+    /* background-color: #535bf2; */
+
+    box-sizing: border-box;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    font-weight: 500;
+    text-decoration: none;
+}
+a:hover {
+    color: #646cff;
+}
+a:visited {
+    color: initial;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    /* background-color: rgba(249, 238, 238, 0.87); */
+
+    /* background: rgb(250, 207, 191);
+    background: linear-gradient(
+        115deg,
+        rgba(250, 207, 191, 1) 0%,
+        rgba(173, 47, 0, 1) 18%,
+        rgba(173, 47, 0, 1) 22%,
+        rgba(230, 127, 78, 1) 50%
+    ); */
+
+    background-image: url("/images/wallpaper.webp");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body > div > main {
+    backdrop-filter: brightness(0.5) blur(2px);
+    min-height: calc(100vh - 82px);
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    color: rgba(255, 255, 255, 0.87);
+
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+/* button:hover {
+    border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+} */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    a:hover {
+        color: #747bff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
+}

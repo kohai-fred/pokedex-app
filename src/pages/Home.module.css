@@ -1,6 +1,23 @@
+.home {
+    min-height: calc(100vh - 82px);
+}
+.home > article:first-child {
+    /* width: clamp(80vw, 65vw, 800px); */
+    /* margin-inline: auto; */
+    padding-block: 2em 1em;
+
+    position: sticky;
+    top: 82px;
+    padding: 2em 20vw 1em;
+    background: linear-gradient(180deg, black, transparent);
+}
+.pokemon_list_wrapper {
+    text-align: center;
+}
 .home_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 20vh);
-    gap: 1em;
-    padding: 1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10vh 0;
+    margin: 0;
 }

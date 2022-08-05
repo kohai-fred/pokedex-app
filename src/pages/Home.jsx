@@ -1,23 +1,13 @@
 import React from "react";
 import styles from "./Home.module.css";
 
-import Card from "../components/Card";
-import getPokemonsList from "../services/fetchPokemonsList";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import List from "../components/List";
 
 function Home() {
-    const { previous, next, list } = useSelector((state) => state.pokemonsList);
+    const { baseList, filteredList } = useSelector((state) => state.pokemonsList);
 
-    return (
-        <div className={styles.home_container}>
-            {list &&
-                list.map((pokemon) => {
-                    return <Card key={pokemon.id} pokemon={pokemon} />;
-                })}
-        </div>
-    );
+    return <List filteredList={filteredList} baseList={baseList} from={"home"} />;
 }
 
 export default Home;

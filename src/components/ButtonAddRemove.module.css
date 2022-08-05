@@ -1,0 +1,19 @@
+.btn {
+    margin: 1em;
+    padding: 5px 15px;
+}
+
+.add {
+    /* background-color: #133824; */
+    background-color: #1d5436;
+}
+.add:hover {
+    background-color: #2a774e;
+}
+
+.remove {
+    background-color: rgb(131, 0, 0);
+}
+.remove:hover {
+    background-color: rgb(174, 21, 21);
+}
