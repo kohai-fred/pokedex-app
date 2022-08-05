@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPokemon, removePokemon } from "../actions";
+import { addPokemon, removePokemon, showModal } from "../actions";
 import styles from "./ButtonAddRemove.module.css";
 
 const ButtonAddRemove = ({ pokemon }) => {
     const { nameList } = useSelector((state) => state.pokedex);
     const dispatch = useDispatch();
+
+    const showAlertRemove = (pokemon) => {
+        // alert(`Êtes vous sur de vouloir supprimer ${pokemon.name}`);
+        dispatch(showModal(true));
+        // dispatch(removePokemon(pokemon))
+    };
 
     return (
         <>
@@ -14,7 +20,7 @@ const ButtonAddRemove = ({ pokemon }) => {
                     Add
                 </button>
             ) : (
-                <button className={`${styles.btn} ${styles.remove}`} onClick={() => dispatch(removePokemon(pokemon))}>
+                <button className={`${styles.btn} ${styles.remove}`} onClick={() => showAlertRemove(pokemon)}>
                     Remove
                 </button>
             )}
