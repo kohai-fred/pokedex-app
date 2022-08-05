@@ -34,18 +34,8 @@ li {
 
 body {
     height: 100vh;
+    width: 100vw;
     margin: 0;
-    /* background-color: rgba(249, 238, 238, 0.87); */
-
-    /* background: rgb(250, 207, 191);
-    background: linear-gradient(
-        115deg,
-        rgba(250, 207, 191, 1) 0%,
-        rgba(173, 47, 0, 1) 18%,
-        rgba(173, 47, 0, 1) 22%,
-        rgba(230, 127, 78, 1) 50%
-    ); */
-
     background-image: url("/images/wallpaper.webp");
     background-position: center center;
     background-attachment: fixed;
