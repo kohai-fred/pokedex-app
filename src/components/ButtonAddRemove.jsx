@@ -1,6 +1,5 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPokemon, removePokemon, showModal } from "../actions";
+import { addPokemon, showModal } from "../actions";
 import styles from "./ButtonAddRemove.module.css";
 
 const ButtonAddRemove = ({ pokemon }) => {

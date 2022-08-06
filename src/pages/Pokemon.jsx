@@ -1,12 +1,8 @@
-import React from "react";
-import getPokemon from "../services/fetchPokemon";
+import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-
+import cleanedPokemonData from "../services/cleanedPokemonData";
 import styles from "./Pokemon.module.css";
 import ButtonAddRemove from "../components/ButtonAddRemove";
-import cleanedPokemonData from "../services/cleanedPokemonData";
-import { useRef } from "react";
 import Spinner from "../components/Spinner";
 
 const Pokemon = () => {
@@ -44,10 +40,11 @@ const Pokemon = () => {
                         <header
                             style={{ background: `linear-gradient(115deg, ${dynamicStyle.color} 57.7%, black 57.7%)` }}
                         >
-                            <h1 style={{ color: `${dynamicStyle.color}` }}>{pokemon.name}</h1>
+                            <h1 style={{ color: `${dynamicStyle.color === "black" ? "white" : dynamicStyle.color}` }}>
+                                {pokemon.name}
+                            </h1>
                             <div>
                                 {pokemon.types.map((t) => {
-                                    // return <span key={`type-${t.slot}`}> {t.type.name} </span>;
                                     return (
                                         <img
                                             src={`../images/types_icons/${t.type.name}.webp`}
@@ -68,7 +65,9 @@ const Pokemon = () => {
                         </section>
                         <section>
                             <h2 style={{ background: dynamicStyle.color }}>
-                                <span style={{ color: dynamicStyle.color }}>Stats</span>
+                                <span style={{ color: dynamicStyle.color === "black" ? "white" : dynamicStyle.color }}>
+                                    Stats
+                                </span>
                             </h2>
                             <div className={`${styles.content} ${styles.stat}`}>
                                 {pokemon.stats.map((s, index) => {
@@ -93,7 +92,9 @@ const Pokemon = () => {
 
                         <section>
                             <h2 style={{ background: dynamicStyle.color }}>
-                                <span style={{ color: dynamicStyle.color }}>Profile</span>
+                                <span style={{ color: dynamicStyle.color === "black" ? "white" : dynamicStyle.color }}>
+                                    Profile
+                                </span>
                             </h2>
                             <div className={styles.content}>
                                 <div>
@@ -141,7 +142,9 @@ const Pokemon = () => {
                         </section>
                         <section>
                             <h2 style={{ background: dynamicStyle.color }}>
-                                <span style={{ color: dynamicStyle.color }}>Evolution</span>
+                                <span style={{ color: dynamicStyle.color === "black" ? "white" : dynamicStyle.color }}>
+                                    Evolution
+                                </span>
                             </h2>
                             <div>
                                 {pokemon.evolution.map((monster, index) => {

@@ -132,7 +132,7 @@
     display: flex;
     align-items: center;
     height: -webkit-fill-available;
-    padding-left: 8px;
+    padding-inline: 8px;
     color: #fff;
     filter: hue-rotate(220deg);
 }

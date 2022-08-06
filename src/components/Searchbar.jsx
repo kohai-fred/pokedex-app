@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { updatePokemonList, updatePokedexList } from "../actions";
 import styles from "./Searchbar.module.css";

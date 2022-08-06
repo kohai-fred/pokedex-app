@@ -1,6 +1,3 @@
-import React from "react";
-import styles from "./Home.module.css";
-
 import { useSelector } from "react-redux";
 import List from "../components/List";
 
