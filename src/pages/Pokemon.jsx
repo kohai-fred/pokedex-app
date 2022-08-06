@@ -15,6 +15,10 @@ const Pokemon = () => {
 
     // On récupère les data du pokemon
     useEffect(() => {
+        // On verifie que l'id soit bien un number
+        if (isNaN(+id)) {
+            return setError(404);
+        }
         const pokemonData = async () => {
             const [data, error] = await cleanedPokemonData(id);
             setError(error);

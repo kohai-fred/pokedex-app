@@ -8,12 +8,9 @@ import getPokemon from "./fetchPokemon";
  */
 
 export default async function cleanedPokemonData(pokemon_id) {
-    if (isNaN(+pokemon_id)) {
-        return [null, 404];
-    }
     const [allData, error] = await getPokemon(pokemon_id);
-    console.log("🚀 ~ file: cleanedPokemonData.js ~ line 5 ~ cleanedPokemonData ~ error", error);
     if (error) return [null, error];
+
     const { abilities, height, weight, id, moves, name, stats, types, sprites } = allData.info;
     const { base_happiness, capture_rate, color, habitat, egg_groups, flavor_text_entries } = allData.species;
 
