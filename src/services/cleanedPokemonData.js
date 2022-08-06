@@ -1,7 +1,19 @@
 import getPokemon from "./fetchPokemon";
 
+/**
+ * *On récupère toutes les datas avec les multiples requêtes de getPokemons
+ * *On traite les données nécessaires et on les renvoi au front
+ * @param {Number} pokemon_id
+ * @returns [data, error]
+ */
+
 export default async function cleanedPokemonData(pokemon_id) {
-    const allData = await getPokemon(pokemon_id);
+    if (isNaN(+pokemon_id)) {
+        return [null, 404];
+    }
+    const [allData, error] = await getPokemon(pokemon_id);
+    console.log("🚀 ~ file: cleanedPokemonData.js ~ line 5 ~ cleanedPokemonData ~ error", error);
+    if (error) return [null, error];
     const { abilities, height, weight, id, moves, name, stats, types, sprites } = allData.info;
     const { base_happiness, capture_rate, color, habitat, egg_groups, flavor_text_entries } = allData.species;
 
@@ -28,7 +40,7 @@ export default async function cleanedPokemonData(pokemon_id) {
         egg_groups,
     };
 
-    return data;
+    return [data, null];
 }
 
 function getId(url) {
@@ -40,14 +52,18 @@ const img_url = (id) => {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
 };
 
+// Fonction récursive pour récuperer les évolutions.
 function createArrayOfEvolution(chain) {
+    // On récupère les 1ere infos qui ne sont pas dans le tableau "evolves_to"
     const evol = [{ ...chain.species, id: getId(chain.species.url), img: img_url(getId(chain.species.url)) }];
 
     function getEvolution(arr) {
+        // Dans le dernier élément du tableau "evol" on rajoute le niveau d'évolution
         evol[evol.length - 1] = {
             ...evol[evol.length - 1],
             min_level: arr[0].evolution_details[0].min_level,
         };
+        // On rajoute le niveau suivant
         evol.push({
             ...arr[0].species,
             id: getId(arr[0].species.url),
@@ -55,10 +71,13 @@ function createArrayOfEvolution(chain) {
             min_level: arr[0]?.evolves_to[0]?.evolution_details[0].min_level || null,
         });
 
+        // On verifie s'il y a une autre évolution
         if (arr[0].evolves_to.length > 0) {
             getEvolution(arr[0].evolves_to);
         }
     }
+
+    // On vérifie qu'il y ai bien une évolution.
     if (chain.evolves_to.length > 0) getEvolution(chain.evolves_to);
 
     return evol;

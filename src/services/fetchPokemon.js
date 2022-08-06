@@ -1,14 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 
-const base_url = "https://pokeapi.co/api/v2";
+/**
+ * *On récupère les datas de base ainsi que les urls pour enchainer les requêtes
+ * @param {Number} id
+ * @returns [data, error]
+ */
 
 export default async function getPokemon(id) {
-    if (!id) return; // 404
-
-    const info = await getInfo(id);
-    const species = await getSpecies(info.species.url);
-    const evol = await getEvol(species.evolution_chain.url);
+    const [info, errorInfo] = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    if (errorInfo) return [null, errorInfo];
+    const [species, errorSpecies] = await getData(info.species.url);
+    if (errorSpecies) return [null, errorSpecies];
+    const [evol, errorEvol] = await getData(species.evolution_chain.url);
+    if (errorEvol) return [null, errorEvol];
 
     const data = {
         info,
@@ -16,22 +20,21 @@ export default async function getPokemon(id) {
         evol,
     };
 
-    // console.log("🚀 ~ file: fetchPokemon.js ~ line 9 ~ getPokemon ~ response", data);
-    return data;
+    console.log("🚀 ~ file: fetchPokemon.js ~ line 9 ~ getPokemon ~ response", data);
+    return [data, null];
 }
 
-async function getInfo(id) {
-    const url = `${base_url}/pokemon/${id}`;
-    const { data } = await axios.get(url);
-    return data;
-}
-
-async function getSpecies(url) {
-    const { data } = await axios.get(url);
-    return data;
-}
-
-async function getEvol(url) {
-    const { data } = await axios.get(url);
-    return data;
+/**
+ ** Requête avec Axios
+ * @param {String} url
+ * @returns [data, error]
+ */
+async function getData(url) {
+    try {
+        const { data } = await axios.get(url);
+        return [data, null];
+    } catch (error) {
+        console.log("Error getData", error);
+        return [null, error];
+    }
 }

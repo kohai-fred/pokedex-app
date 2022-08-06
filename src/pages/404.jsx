@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./404.module.css";
 
-const Page404 = ({ error }) => {
+const Error = ({ error }) => {
     return (
         <main className={styles.page_404}>
             <div>
                 <img src="../images/404_txt.webp" alt="" />
                 {/* <p>{error.message}</p> */}
-                <Link to={"./"}>
+                <Link to={"/"}>
                     <button>Retour à l'accueil</button>
                 </Link>
             </div>
@@ -15,4 +15,4 @@ const Page404 = ({ error }) => {
     );
 };
 
-export default Page404;
+export default Error;

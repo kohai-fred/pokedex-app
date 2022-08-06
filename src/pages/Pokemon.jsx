@@ -4,21 +4,32 @@ import cleanedPokemonData from "../services/cleanedPokemonData";
 import styles from "./Pokemon.module.css";
 import ButtonAddRemove from "../components/ButtonAddRemove";
 import Spinner from "../components/Spinner";
+import Error from "./404";
 
 const Pokemon = () => {
     const { id } = useParams();
     const [pokemon, setPokemon] = useState(null);
+    const [error, setError] = useState(null);
     const [dynamicStyle, setDynamicStyle] = useState({ color: "black" });
     const content = useRef(null);
 
+    // On récupère les data du pokemon
     useEffect(() => {
         const pokemonData = async () => {
-            const data = await cleanedPokemonData(id);
-            console.log("🚀 ~ POKEMON", data);
+            const [data, error] = await cleanedPokemonData(id);
+            setError(error);
             setPokemon(data);
         };
         pokemonData();
     }, [id]);
+
+    // On récupère la couleur dynamiquement pour le style.
+    useEffect(() => {
+        if (!pokemon) return;
+        setDynamicStyle({ color: pokemon.color.name });
+    }, [pokemon]);
+
+    // Au click sur une évolution on remonte la carte.
     useEffect(() => {
         if (!content.current) return;
         content.current.scrollTo({
@@ -26,10 +37,10 @@ const Pokemon = () => {
             behavior: "smooth",
         });
     }, [id]);
-    useEffect(() => {
-        if (!pokemon) return;
-        setDynamicStyle({ color: pokemon.color.name, background: pokemon.color.name });
-    }, [pokemon]);
+
+    // Gestion page erreur.
+    if (error) return <Error error={error} />;
+
     return (
         <main className={styles.pokemon}>
             {!pokemon ? (

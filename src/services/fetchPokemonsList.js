@@ -9,7 +9,6 @@ export default async function getPokemonsList(url = "https://pokeapi.co/api/v2/p
             const str = pokemon.url.split("/");
             return { ...pokemon, id: str[str.length - 2] };
         });
-        console.log("DATA", data.results);
 
         return [data.results, null];
     } catch (error) {
