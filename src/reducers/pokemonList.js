@@ -1,10 +1,11 @@
 import { SEARCH_IN_POKEMON_LIST } from "../actions/types";
 import getPokemonsList from "../services/fetchPokemonsList";
 
-const DATA = await getPokemonsList();
+const [DATA, error] = await getPokemonsList();
 const initialState = {
-    baseList: DATA.results,
-    filteredList: DATA.results,
+    baseList: DATA,
+    filteredList: DATA,
+    error,
 };
 
 export default function pokemonsListReducer(state = initialState, action = {}) {

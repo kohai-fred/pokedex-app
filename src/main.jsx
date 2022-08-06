@@ -11,6 +11,7 @@ import Pokedex from "./pages/Pokedex";
 import store from "./store/store";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
+import Page404 from "./pages/404";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     // <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Route path="/" element={<Home />} />
                 <Route path="/pokemon/:id" element={<Pokemon />} />
                 <Route path="/pokedex" element={<Pokedex />} />
+                <Route path="/404" element={<Page404 />} />
             </Routes>
         </BrowserRouter>
     </Provider>

@@ -1,15 +1,19 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
 
 export default async function getPokemonsList(url = "https://pokeapi.co/api/v2/pokemon/?limit=649") {
-    const { data } = await axios.get(url);
+    try {
+        const { data } = await axios.get(url);
 
-    data["results"] = data.results.map((pokemon) => {
-        const str = pokemon.url.split("/");
-        return { ...pokemon, id: str[str.length - 2] };
-    });
+        // On récupère l'ID dans l'url et on l'insert dans data
+        data["results"] = data.results.map((pokemon) => {
+            const str = pokemon.url.split("/");
+            return { ...pokemon, id: str[str.length - 2] };
+        });
+        console.log("DATA", data.results);
 
-    console.log("DATA", data);
-
-    return data;
+        return [data.results, null];
+    } catch (error) {
+        console.log("ERROR=>", error);
+        return [null, error];
+    }
 }
