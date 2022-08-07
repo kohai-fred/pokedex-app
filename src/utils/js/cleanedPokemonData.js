@@ -1,5 +1,5 @@
-import img_urls from "../utils/js/img_urls";
-import getPokemon from "./fetchPokemon";
+import img_urls from "./img_urls";
+import getPokemon from "../../services/fetchPokemon";
 
 /**
  * *On récupère toutes les datas avec les multiples requêtes de getPokemons

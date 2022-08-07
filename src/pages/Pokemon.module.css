@@ -3,7 +3,9 @@
     display: flex;
     place-content: center;
 }
-
+/* ===============================
+            CARD
+ =============================== */
 .pokemon > article {
     position: fixed;
     overflow: scroll;
@@ -22,7 +24,7 @@
     backdrop-filter: blur(5px);
     min-height: -webkit-fill-available;
 }
-/* HEADER */
+/* ==== HEADER ==== */
 .pokemon header {
     position: sticky;
     top: 0;
@@ -63,7 +65,8 @@
     filter: drop-shadow(0px 0px 2px white) saturate(12) brightness(200%);
 }
 
-/* Section */
+/* ==== Section ==== */
+/* Général */
 .pokemon section {
     position: relative;
     margin: clamp(10px, 3vw, 15px);
@@ -80,16 +83,18 @@
     /* color: #292800; */
     font-weight: 600;
 }
-
-.pokemon .title_img,
-.pokemon .id {
-    font-family: "Montserrat Alternates", sans-serif;
-    color: white;
-    font-size: clamp(2em, 4vw, 5em);
-    text-shadow: 2px 2px 3px black;
-    text-align: center;
-    text-transform: uppercase;
+.pokemon .img_container {
+    display: grid;
+    place-content: center;
 }
+.pokemon .img_container img {
+    position: relative;
+    z-index: 1;
+    width: clamp(160px, 50vw, 300px);
+    aspect-ratio: 1/1;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
 .pokemon .content {
     padding-inline: 1em;
 }
@@ -109,7 +114,30 @@
 .pokemon .content h3 {
     white-space: nowrap;
 }
-/* STAT */
+/* Section #1 */
+.pokemon .img_big {
+    margin-top: 5vw;
+}
+
+.pokemon .title_img,
+.pokemon .id {
+    font-family: "Montserrat Alternates", sans-serif;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+    text-align: center;
+    text-transform: uppercase;
+}
+.pokemon .title_img {
+    font-size: clamp(2em, 4vw, 3em);
+}
+.pokemon .id {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(4em, 20vw, 8em);
+}
+/* Section #2 STAT */
 .pokemon .stat > div {
     align-items: baseline;
 }
@@ -136,30 +164,8 @@
     color: #fff;
     filter: hue-rotate(220deg);
 }
-/* FIN STAT */
-.pokemon .img_container {
-    display: grid;
-    place-content: center;
-}
-.pokemon .img_container img {
-    position: relative;
-    z-index: 1;
-    width: clamp(160px, 50vw, 300px);
-    aspect-ratio: 1/1;
-    filter: drop-shadow(5px 5px 5px black);
-}
-.pokemon .img_big {
-    margin-top: 5vw;
-}
-.pokemon .id {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(4em, 20vw, 8em);
-}
 
-/* Evolution */
+/* Section #3 Evolution */
 .pokemon .evol {
     position: relative;
     aspect-ratio: auto;
@@ -219,7 +225,7 @@
     text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black;
 }
 
-/* FOOTER */
+/* ==== FOOTER ==== */
 
 .pokemon footer {
     position: sticky;

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Pokemon.module.css";
-import cleanedPokemonData from "../services/cleanedPokemonData";
+import cleanedPokemonData from "../utils/js/cleanedPokemonData";
 import changeImgSrc from "../utils/js/changeImgSrc";
 import ButtonAddRemove from "../components/ButtonAddRemove";
 import Spinner from "../components/Spinner";
