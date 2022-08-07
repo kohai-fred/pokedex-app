@@ -4,6 +4,7 @@
 .list > article:first-child {
     position: sticky;
     top: 82px;
+    z-index: 10;
     display: flex;
     padding: 0.5em;
     background: linear-gradient(90deg, black 7%, transparent);
