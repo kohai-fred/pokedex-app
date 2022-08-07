@@ -4,6 +4,7 @@ import styles from "./List.module.css";
 import Card from "./Card";
 import loadNextPokemons from "../utils/js/loadNextPokemons";
 import swithDispatchUpdate from "../utils/js/swithDispatchUpdate";
+import scrollTop from "../utils/js/scrollTop";
 
 // Nombre de pokemons à ajouter sur la page
 const SIZE_LOAD = 20;
@@ -62,12 +63,6 @@ const List = ({ baseList, filteredList, from }) => {
         }
     });
 
-    const scrollTop = () => {
-        window.scrollTo({
-            top: "82px",
-            behavior: "smooth",
-        });
-    };
     // On lance l'écouteur
     useEffect(() => {
         if (!ul) return;

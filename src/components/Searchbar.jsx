@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { updatePokemonList, updatePokedexList } from "../actions";
+import scrollTop from "../utils/js/scrollTop";
 import styles from "./Searchbar.module.css";
 
 const Searchbar = ({ baseList, from }) => {
@@ -10,6 +11,8 @@ const Searchbar = ({ baseList, from }) => {
             const str1 = list.name.slice(0, e.target.value.length);
             return str1 === e.target.value;
         });
+
+        scrollTop();
 
         switch (from) {
             case "home":
