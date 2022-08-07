@@ -1,6 +1,9 @@
 /**
- *
+ * Renvoie un tableau avec des pokemons supplémentaire à afficher
  * @param {[]} filteredPokemonList
+ * @param {[]} oldList
+ * @param {Number} sizeLoad Nombre supp à afficher
+ * @return {[]}
  */
 export default function loadNextPokemons(filteredPokemonList, oldList, sizeLoad) {
     const oldLength = oldList.length;
