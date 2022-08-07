@@ -20,7 +20,6 @@ export default async function getPokemon(id) {
         evol,
     };
 
-    console.log("🚀 ~ file: fetchPokemon.js ~ line 9 ~ getPokemon ~ response", data);
     return [data, null];
 }
 

@@ -128,14 +128,14 @@
     text-transform: uppercase;
 }
 .pokemon .title_img {
-    font-size: clamp(2em, 4vw, 3em);
+    font-size: clamp(2em, 3vw, 3em);
 }
 .pokemon .id {
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(4em, 20vw, 8em);
+    font-size: clamp(4em, 20vw, 7em);
 }
 /* Section #2 STAT */
 .pokemon .stat > div {

@@ -22,7 +22,6 @@ const Pokemon = () => {
         }
         const pokemonData = async () => {
             const [data, error] = await cleanedPokemonData(id);
-            console.log("🚀 ~ file: Pokemon.jsx ~ line 26 ~ pokemonData ~ data", data);
             setError(error);
             setPokemon(data);
         };

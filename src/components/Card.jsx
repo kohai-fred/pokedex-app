@@ -5,7 +5,7 @@ import ButtonAddRemove from "./ButtonAddRemove";
 import styles from "./Card.module.css";
 import Spinner from "./Spinner";
 
-function Card({ pokemon }) {
+function Card({ pokemon, reset }) {
     const { name, id } = pokemon;
     const src = img_urls(pokemon.id);
 
@@ -16,7 +16,7 @@ function Card({ pokemon }) {
             ) : (
                 <li className={styles.card} id={id}>
                     <p className={styles.card_title}> {name} </p>
-                    <Link to={`/pokemon/${id}`} className={styles.card_img_link}>
+                    <Link to={`/pokemon/${id}`} className={styles.card_img_link} onClick={reset}>
                         <div className={styles.card_img_container}>
                             <img
                                 className={styles.card_img}
