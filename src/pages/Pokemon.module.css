@@ -156,7 +156,7 @@
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(5em, 25vw, 10em);
+    font-size: clamp(4em, 20vw, 8em);
 }
 
 /* Evolution */

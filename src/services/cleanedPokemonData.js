@@ -1,3 +1,4 @@
+import img_urls from "../utils/js/img_urls";
 import getPokemon from "./fetchPokemon";
 
 /**
@@ -17,7 +18,7 @@ export default async function cleanedPokemonData(pokemon_id) {
     const evolution = createArrayOfEvolution(allData.evol.chain);
     const description = getDescription(flavor_text_entries);
 
-    const img = sprites.other.dream_world.front_default;
+    const img = img_urls(pokemon_id);
     const data = {
         abilities,
         height,
@@ -45,14 +46,10 @@ function getId(url) {
     return id[id.length - 2];
 }
 
-const img_url = (id) => {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
-};
-
 // Fonction récursive pour récuperer les évolutions.
 function createArrayOfEvolution(chain) {
     // On récupère les 1ere infos qui ne sont pas dans le tableau "evolves_to"
-    const evol = [{ ...chain.species, id: getId(chain.species.url), img: img_url(getId(chain.species.url)) }];
+    const evol = [{ ...chain.species, id: getId(chain.species.url), img: img_urls(getId(chain.species.url)) }];
 
     function getEvolution(arr) {
         // Dans le dernier élément du tableau "evol" on rajoute le niveau d'évolution
@@ -64,7 +61,7 @@ function createArrayOfEvolution(chain) {
         evol.push({
             ...arr[0].species,
             id: getId(arr[0].species.url),
-            img: img_url(getId(arr[0].species.url)),
+            img: img_urls(getId(arr[0].species.url)),
             min_level: arr[0]?.evolves_to[0]?.evolution_details[0].min_level || null,
         });
 

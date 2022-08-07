@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import cleanedPokemonData from "../services/cleanedPokemonData";
 import styles from "./Pokemon.module.css";
+import cleanedPokemonData from "../services/cleanedPokemonData";
+import changeImgSrc from "../utils/js/changeImgSrc";
 import ButtonAddRemove from "../components/ButtonAddRemove";
 import Spinner from "../components/Spinner";
 import Error from "./404";
@@ -21,6 +22,7 @@ const Pokemon = () => {
         }
         const pokemonData = async () => {
             const [data, error] = await cleanedPokemonData(id);
+            console.log("🚀 ~ file: Pokemon.jsx ~ line 26 ~ pokemonData ~ data", data);
             setError(error);
             setPokemon(data);
         };
@@ -73,7 +75,12 @@ const Pokemon = () => {
 
                         <section>
                             <div className={styles.img_container}>
-                                <img src={pokemon.img} alt={pokemon.name} className={styles.img_big} />
+                                <img
+                                    src={pokemon.img.src_official}
+                                    alt={pokemon.name}
+                                    className={styles.img_big}
+                                    onError={(e) => changeImgSrc(e, pokemon.img)}
+                                />
                             </div>
                             <p className={styles.title_img}>{pokemon.name}</p>
                             <span className={styles.id}>#{pokemon.id}</span>
@@ -167,7 +174,12 @@ const Pokemon = () => {
                                         <div key={monster.id}>
                                             <div className={`${styles.img_container} ${styles.evol}`}>
                                                 <Link to={`/pokemon/${monster.id}`}>
-                                                    <img src={monster.img} alt={monster.name} loading="lazy" />
+                                                    <img
+                                                        src={monster.img.src_official}
+                                                        alt={monster.name}
+                                                        loading="lazy"
+                                                        onError={(e) => changeImgSrc(e, monster.img)}
+                                                    />
                                                 </Link>
                                                 <div>
                                                     <p className={styles.title_img}>{monster.name} </p>
